@@ -40,10 +40,6 @@ actor {
         Iter.toArray(voters.entries());
     };
 
-    public shared(msg) func removeVoter() : async () {
-        voters.delete(msg.caller);
-    };
-
     public shared(msg) func getVoter(principal: Principal) : async ?Voter {
         voters.get(principal);
     };
