@@ -35,31 +35,40 @@ actor {
         roundEntries := [];
     };
 
-    public func addVoter(voter: Voter) : async () {
+    public shared(msg) func addVoter(voter: Voter) : async [(Principal, Voter)] {
+        voters.put(msg.caller,voter);
+        Iter.toArray(voters.entries());
+    };
+
+    public shared(msg) func removeVoter() : async () {
+        voters.delete(msg.caller);
+    };
+
+    public shared(msg) func getVoter(principal: Principal) : async ?Voter {
+        voters.get(principal);
+    };
+
+    public shared(msg) func getVoters() : async [(Principal, Voter)] {
+        Iter.toArray(voters.entries());
+    };
+
+    public shared(msg) func vote() : async () {
 
     };
 
-    public func removeVoter() : async () {
+    public shared(msg) func startRound() : async () {
 
     };
 
-    public func vote() : async () {
+    public shared(msg) func endRound() : async () {
 
     };
 
-    public func startRound() : async () {
+    public shared(msg) func getRoundById() : async () {
 
     };
 
-    public func endRound() : async () {
-
-    };
-
-    public func getRoundById() : async () {
-
-    };
-
-    public func getRounds() : async () {
+    public shared(msg) func getRounds() : async () {
 
     };
 
