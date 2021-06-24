@@ -1,19 +1,18 @@
 {
   "canisters": {
     "buildme": {
-      "main": "src/buildme/main.mo",
+      "main": "src/backend/main.mo",
       "type": "motoko"
     },
-    "buildme_assets": {
+    "assets": {
       "dependencies": [
         "buildme"
       ],
       "frontend": {
-        "entrypoint": "src/buildme_assets/src/index.html"
+        "entrypoint": "dist/index.html"
       },
       "source": [
-        "src/buildme_assets/assets",
-        "dist/buildme_assets/"
+        "dist/"
       ],
       "type": "assets"
     }
