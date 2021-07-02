@@ -6,7 +6,7 @@ module {
     type Project = Model.Project;
 
     public type Round = {
-        id: Int;
+        id: Nat;
         title:Text;
         description:Text;
         projects: [Project];
